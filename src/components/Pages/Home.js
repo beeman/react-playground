@@ -1,16 +1,9 @@
 import React from 'react'
-import SearchGithub from '../Github/SearchGithub'
 
-const PageHome = ({ children, history }) => (
+const PageHome = () => (
   <div>
-    <SearchGithub history={history}/>
-    {children}
+    <h3>Welcome Home!</h3>
   </div>
 )
-
-PageHome.propTypes = {
-  history: React.PropTypes.object.isRequired,
-  children: React.PropTypes.object.isRequired,
-}
 
 export default PageHome

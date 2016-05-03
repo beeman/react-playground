@@ -1,8 +1,8 @@
 import React from 'react'
-import Repos from './Github/Repos'
-import UserProfile from './Github/UserProfile'
-import Notes from './Notes/Notes'
-import getGithubInfo from '../utils/helpers'
+import Repos from './Repos'
+import UserProfile from './UserProfile'
+import Notes from './../Notes/Notes'
+import getGithubInfo from '../../utils/helpers'
 import Rebase from 're-base'
 
 const base = Rebase.createClass(FIREBASE_URL)

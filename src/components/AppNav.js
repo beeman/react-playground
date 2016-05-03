@@ -21,6 +21,9 @@ const AppNav = () => (
         <LinkContainer to="/count">
           <NavItem eventKey={2}>Count</NavItem>
         </LinkContainer>
+        <LinkContainer to="/github">
+          <NavItem eventKey={3}>Github</NavItem>
+        </LinkContainer>
       </Nav>
       <Nav pullRight>
         <LinkContainer to="/about">

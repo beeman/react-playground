@@ -8,7 +8,7 @@ class SearchGithub extends React.Component {
   handleSubmit () {
     const username = this.usernameRef.value
     this.usernameRef.value = ''
-    this.props.router.push('/home/profile/' + username)
+    this.props.router.push('/github/profile/' + username)
   }
   render () {
     return (
