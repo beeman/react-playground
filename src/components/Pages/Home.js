@@ -1,5 +1,5 @@
 import React from 'react'
-import {History, Router} from 'react-router'
+import {History} from 'react-router'
 
 const PageHome = React.createClass({
   mixins: [ History ],

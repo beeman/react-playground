@@ -4,22 +4,32 @@ import UserProfile from './Github/UserProfile'
 import Notes from './Notes/Notes'
 import Firebase from 'firebase'
 import ReactFireMixin from 'reactfire'
+import helpers from '../utils/helpers'
 
 const Profile = React.createClass({
   mixins: [ ReactFireMixin ],
   getInitialState: function() {
     return {
-      notes: [ ],
-      bio: {
-        name: 'Default Bio Name',
-      },
-      repos: [ 'b' ],
+      notes: [],
+      bio: {},
+      repos: [],
     }
   },
   componentDidMount: function() {
     this.ref = new Firebase(FIREBASE_URL)
     const childRef = this.ref.child(this.props.params.username)
     this.bindAsArray(childRef, 'notes')
+
+    helpers.getGithubInfo(this.props.params.username)
+      .then((data) => {
+        this.setState({
+          bio: data.bio,
+          repos: data.repos,
+        })
+      })
+      .catch(err => {
+        console.error(err)
+      })
   },
   componentWillUnmount: function() {
     this.unbind('notes')
