@@ -2,30 +2,41 @@ import React from 'react'
 import Repos from './Github/Repos'
 import UserProfile from './Github/UserProfile'
 import Notes from './Notes/Notes'
-import Firebase from 'firebase'
-import ReactFireMixin from 'reactfire'
 import getGithubInfo from '../utils/helpers'
+import Rebase from 're-base'
 
-const Profile = React.createClass({
-  mixins: [ ReactFireMixin ],
-  getInitialState: function() {
-    return {
+const base = Rebase.createClass(FIREBASE_URL)
+
+class Profile extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
       notes: [],
       bio: {},
       repos: [],
     }
-  },
-  componentDidMount: function() {
-    this.ref = new Firebase(FIREBASE_URL)
+  }
+
+  componentDidMount () {
     this.init(this.props.params.username)
-  },
-  componentWillReceiveProps: function(nextProps) {
-    this.unbind('notes')
+  }
+
+  componentWillReceiveProps (nextProps) {
+    base.removeBinding(this.ref)
     this.init(nextProps.params.username)
-  },
-  init: function(username) {
-    const childRef = this.ref.child(username)
-    this.bindAsArray(childRef, 'notes')
+  }
+
+  componentWillUnmount () {
+    base.removeBinding(this.ref)
+  }
+
+  init (username) {
+    this.ref = base.bindToState(username, {
+      context: this,
+      asArray: true,
+      state: 'notes',
+    })
+
     getGithubInfo(username)
       .then((data) => {
         this.setState({
@@ -36,14 +47,15 @@ const Profile = React.createClass({
       .catch(err => {
         console.error(err)
       })
-  },
-  componentWillUnmount: function() {
-    this.unbind('notes')
-  },
-  handleAddNote: function(newNote) {
-    this.ref.child(this.props.params.username).child(this.state.notes.length).set(newNote)
-  },
-  render: function() {
+  }
+
+  handleAddNote (newNote) {
+    base.post(this.props.params.username, {
+      data: this.state.notes.concat([ newNote ])
+    })
+  }
+
+  render () {
     return (
       <div className="row">
         <div className="col-md-4">
@@ -54,13 +66,13 @@ const Profile = React.createClass({
         </div>
         <div className="col-md-4">
           <Notes
-            addNote={this.handleAddNote}
+            addNote={(newNote) => this.handleAddNote(newNote)}
             notes={this.state.notes}
             username={this.props.params.username}/>
         </div>
       </div>
     )
   }
-})
+}
 
-module.exports = Profile
+export default Profile

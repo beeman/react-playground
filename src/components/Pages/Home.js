@@ -1,33 +1,15 @@
 import React from 'react'
-import {History} from 'react-router'
+import SearchGithub from '../Github/SearchGithub'
 
-const PageHome = React.createClass({
-  mixins: [ History ],
-  getRef: function(ref) {
-    this.usernameRef = ref
-  },
-  handleSubmit: function() {
-    const username = this.usernameRef.value
-    this.usernameRef.value = ''
-    this.history.pushState(null, '/home/profile/' + username)
-  },
+class PageHome extends React.Component {
   render () {
     return (
-      <div className="col-sm-12">
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-group col-sm-7">
-            <input type="text" className="form-control" ref={this.getRef}/>
-          </div>
-          <div className="form-group col-sm-5">
-            <button className="btn btn-block btn-primary">
-              Search Github
-            </button>
-          </div>
-        </form>
+      <div>
+        <SearchGithub history={this.props.history}/>
         {this.props.children}
       </div>
     )
   }
-})
+}
 
 export default PageHome
