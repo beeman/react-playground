@@ -17,7 +17,7 @@ const Profile = React.createClass({
     }
   },
   componentDidMount: function() {
-    this.ref = new Firebase('https://<FIREBASE_URL>.firebaseio.com/')
+    this.ref = new Firebase(FIREBASE_URL)
     const childRef = this.ref.child(this.props.params.username)
     this.bindAsArray(childRef, 'notes')
   },
