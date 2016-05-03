@@ -2,20 +2,16 @@ import React from 'react'
 import NotesList from './NotesList'
 import NoteAdd from './NoteAdd'
 
-class Notes extends React.Component {
-  render () {
-    return (
-      <div>
-        <h3>Notes for {this.props.username}</h3>
-        <NoteAdd
-          username={this.props.username}
-          addNote={this.props.addNote} />
-        <NotesList
-          notes={this.props.notes}/>
-      </div>
-    )
-  }
-}
+const Notes = ({ addNote, notes, username }) => (
+  <div>
+    <h3>Notes for {username}</h3>
+    <NoteAdd
+      username={username}
+      addNote={addNote}/>
+    <NotesList
+      notes={notes}/>
+  </div>
+)
 
 Notes.propTypes = {
   addNote: React.PropTypes.func.isRequired,

@@ -1,11 +1,15 @@
 import React from 'react'
 import AppNav from './AppNav'
 
-const App = (props) => (
+const App = ({ children }) => (
   <div className='container'>
     <AppNav />
-    {props.children}
+    {children}
   </div>
 )
+
+App.propTypes = {
+  children: React.PropTypes.object.isRequired,
+}
 
 export default App
