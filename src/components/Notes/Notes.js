@@ -7,8 +7,11 @@ class Notes extends React.Component {
     return (
       <div>
         <h3>Notes for {this.props.username}</h3>
-        <NoteAdd username={this.props.username} addNote={this.props.addNote} />
-        <NotesList notes={this.props.notes}/>
+        <NoteAdd
+          username={this.props.username}
+          addNote={this.props.addNote} />
+        <NotesList
+          notes={this.props.notes}/>
       </div>
     )
   }
@@ -20,4 +23,4 @@ Notes.propTypes = {
   username: React.PropTypes.string.isRequired,
 }
 
-module.exports = Notes
+export default Notes

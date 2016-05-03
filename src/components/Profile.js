@@ -4,7 +4,7 @@ import UserProfile from './Github/UserProfile'
 import Notes from './Notes/Notes'
 import Firebase from 'firebase'
 import ReactFireMixin from 'reactfire'
-import helpers from '../utils/helpers'
+import getGithubInfo from '../utils/helpers'
 
 const Profile = React.createClass({
   mixins: [ ReactFireMixin ],
@@ -26,7 +26,7 @@ const Profile = React.createClass({
   init: function(username) {
     const childRef = this.ref.child(username)
     this.bindAsArray(childRef, 'notes')
-    helpers.getGithubInfo(username)
+    getGithubInfo(username)
       .then((data) => {
         this.setState({
           bio: data.bio,
