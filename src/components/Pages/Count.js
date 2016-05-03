@@ -1,7 +1,7 @@
 import React from 'react'
 import {Button} from 'react-bootstrap'
 
-class PageHome extends React.Component {
+class PageCount extends React.Component {
   constructor () {
     super()
     this.state = {
@@ -17,11 +17,11 @@ class PageHome extends React.Component {
   render () {
     return (
       <div>
-        <h1>Hello!</h1>
+        <h1>Count!</h1>
         <Button onClick={this.buttonClick}>Button click {this.state.count}</Button>
       </div>
     )
   }
 }
 
-export default PageHome
+export default PageCount

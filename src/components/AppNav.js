@@ -18,6 +18,9 @@ const AppNav = () => (
         <LinkContainer to="/home">
           <NavItem eventKey={1}>Home</NavItem>
         </LinkContainer>
+        <LinkContainer to="/count">
+          <NavItem eventKey={2}>Count</NavItem>
+        </LinkContainer>
       </Nav>
       <Nav pullRight>
         <LinkContainer to="/about">
