@@ -25,5 +25,4 @@ UserProfile.propTypes = {
   username: React.PropTypes.string.isRequired,
 }
 
-
-module.exports = UserProfile
+export default UserProfile
