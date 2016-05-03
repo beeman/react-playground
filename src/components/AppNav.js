@@ -15,7 +15,7 @@ const AppNav = () => (
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav>
-        <LinkContainer to="/">
+        <LinkContainer to="/home">
           <NavItem eventKey={1}>Home</NavItem>
         </LinkContainer>
       </Nav>

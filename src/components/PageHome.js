@@ -1,9 +1,7 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
+import {Button} from 'react-bootstrap'
 
-import AppNav from './AppNav'
-
-class AppHome extends React.Component {
+class PageHome extends React.Component {
   constructor () {
     super()
     this.state = {
@@ -18,8 +16,7 @@ class AppHome extends React.Component {
 
   render () {
     return (
-      <div className='container'>
-        <AppNav />
+      <div>
         <h1>Hello!</h1>
         <Button onClick={this.buttonClick}>Button click {this.state.count}</Button>
       </div>
@@ -27,4 +24,4 @@ class AppHome extends React.Component {
   }
 }
 
-export default AppHome
+export default PageHome

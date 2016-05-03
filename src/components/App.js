@@ -1,20 +1,11 @@
 import React from 'react'
-import { Router, Route, hashHistory } from 'react-router'
+import AppNav from './AppNav'
 
-import AppHome from './AppHome'
-import AppAbout from './AppAbout'
-import AppContact from './AppContact'
-
-class App extends React.Component {
-  render() {
-    return (
-      <Router history={ hashHistory }>
-        <Route path="/" component={AppHome}></Route>
-        <Route path="/about" component={AppAbout}></Route>
-        <Route path="/contact" component={AppContact}></Route>
-      </Router>
-    )
-  }
-}
+const App = (props) => (
+  <div className='container'>
+    <AppNav />
+    {props.children}
+  </div>
+)
 
 export default App
