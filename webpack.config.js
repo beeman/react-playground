@@ -4,6 +4,7 @@ module.exports = {
   output: {
     path: './public/',
     filename: 'bundle.js',
+    publicPath: '/',
   },
   devServer: {
     inline: true,
