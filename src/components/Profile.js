@@ -17,10 +17,16 @@ const Profile = React.createClass({
   },
   componentDidMount: function() {
     this.ref = new Firebase(FIREBASE_URL)
-    const childRef = this.ref.child(this.props.params.username)
+    this.init(this.props.params.username)
+  },
+  componentWillReceiveProps: function(nextProps) {
+    this.unbind('notes')
+    this.init(nextProps.params.username)
+  },
+  init: function(username) {
+    const childRef = this.ref.child(username)
     this.bindAsArray(childRef, 'notes')
-
-    helpers.getGithubInfo(this.props.params.username)
+    helpers.getGithubInfo(username)
       .then((data) => {
         this.setState({
           bio: data.bio,
