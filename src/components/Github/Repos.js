@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Repos = ({repos }) => (
+const Repos = ({repos}) => (
   <div>
     <h3>User Repos</h3>
     <ul className="list-group">

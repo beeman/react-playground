@@ -1,5 +1,5 @@
 import React from 'react'
-import Router from 'react-router'
+import { withRouter } from 'react-router'
 
 class SearchGithub extends React.Component {
   getRef (ref) {
@@ -8,7 +8,7 @@ class SearchGithub extends React.Component {
   handleSubmit () {
     const username = this.usernameRef.value
     this.usernameRef.value = ''
-    this.props.history.pushState(null, '/home/profile/' + username)
+    this.props.router.push('/home/profile/' + username)
   }
   render () {
     return (
@@ -32,4 +32,4 @@ SearchGithub.propTypes = {
   history: React.PropTypes.object.isRequired,
 }
 
-export default SearchGithub
+export default withRouter(SearchGithub)

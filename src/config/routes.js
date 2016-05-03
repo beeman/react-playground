@@ -8,7 +8,7 @@ import About from '../components/Pages/About'
 import Contact from '../components/Pages/Contact'
 import Profile from '../components/Profile'
 
-module.exports = (
+export default (
   <Route path="/" component={App}>
     <IndexRedirect to="/home" />
     <Route path="/home" component={Home}>
