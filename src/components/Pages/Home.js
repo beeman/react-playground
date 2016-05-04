@@ -1,8 +1,11 @@
 import React from 'react'
 
 export default () => (
-  <div className="container">
-    <h1>Home!</h1>
+  <div>
+    <h1>
+      <i className="fa fa-fw fa-play"></i>
+      React Playground
+    </h1>
   </div>
 )
 

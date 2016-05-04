@@ -8,6 +8,7 @@ const AppNav = () => (
     <Navbar.Header>
       <Navbar.Brand>
         <Link to="/">
+          <i className="fa fa-fw fa-play"></i>
           React Playground
         </Link>
       </Navbar.Brand>

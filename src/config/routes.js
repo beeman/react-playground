@@ -23,7 +23,6 @@ export default (
     <Route path="/count" component={Count}/>
     <Route path="/store" component={Store}>
       <IndexRoute component={Catalog} />
-      <Route path="catalog" component={Catalog}/>
       <Route path="cart" component={Cart}/>
       <Route path="item/:item" component={CatalogDetail}/>
     </Route>

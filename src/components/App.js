@@ -4,7 +4,9 @@ import AppNav from './AppNav'
 const App = ({ children }) => (
   <div className='container'>
     <AppNav />
-    {children}
+    <div className="container">
+      {children}
+    </div>
   </div>
 )
 
