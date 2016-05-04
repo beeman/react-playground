@@ -24,6 +24,9 @@ const AppNav = () => (
         <LinkContainer to="/github">
           <NavItem eventKey={3}>Github</NavItem>
         </LinkContainer>
+        <LinkContainer to="/store">
+          <NavItem eventKey={4}>Store</NavItem>
+        </LinkContainer>
       </Nav>
       <Nav pullRight>
         <LinkContainer to="/about">

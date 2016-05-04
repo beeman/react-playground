@@ -1,6 +1,7 @@
 import React from 'react'
-import AppActions from '../../actions/app-actions'
-import CartButton from './app-cart-button'
+import AppActions from '../../../actions/app-actions'
+import CartButton from './../Cart/CartButton'
+import {Link} from 'react-router'
 
 export default (props) => {
   return (
@@ -15,12 +16,17 @@ export default (props) => {
           {props.item.qty && `(${props.item.qty} in cart)`}
         </span>
       </p>
-      <CartButton
-        handler={
+      <div className="btn-group">
+        <Link to={`/store/item/${props.item.id}`} className="btn btn-default btn-xs">
+          Learn more
+        </Link>
+        <CartButton
+          handler={
           AppActions.addItem.bind(null, props.item)
         }
-        txt="Add to Cart"
-      />
+          txt="Add to Cart"
+        />
+      </div>
     </div>
   )
 }

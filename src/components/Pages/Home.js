@@ -1,13 +1,8 @@
 import React from 'react'
-import AppActions from '../../actions/app-actions'
-import AppCatalog from '../Cart/app-catalog'
-import Cart from '../Cart/app-cart'
 
-const PageHome = () => (
+export default () => (
   <div className="container">
-    <AppCatalog />
-    <Cart />
+    <h1>Home!</h1>
   </div>
 )
 
-export default PageHome

@@ -1,7 +1,8 @@
 import React from 'react'
-import AppStore from '../../stores/app-store'
-import AppCartItem from './app-cart-item'
-import StoreWatchMixin from '../../mixins/StoreWatchMixin'
+import AppStore from '../../../stores/app-store'
+import CartItem from './CartItem'
+import StoreWatchMixin from '../../../mixins/StoreWatchMixin'
+import {Link} from 'react-router'
 
 const cartItems = () => ({ items: AppStore.getCart() })
 
@@ -11,7 +12,7 @@ const Cart = (props) => {
     let subtotal = item.cost * item.qty
     total += subtotal
     return (
-      <AppCartItem subtotal={subtotal} key={i} item={item}/>
+      <CartItem subtotal={subtotal} key={i} item={item}/>
     )
   })
   return (
@@ -37,6 +38,7 @@ const Cart = (props) => {
         </tr>
         </tfoot>
       </table>
+      <Link to="/store">Continue shopping</Link>
     </div>
   )
 }

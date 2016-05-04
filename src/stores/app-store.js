@@ -37,15 +37,14 @@ const _decreaseItem = (item) => {
 
 const _addItem = (item) => {
   const cartItem = _findItem(item)
-  console.log('cartItem', cartItem)
   if (!cartItem) {
     _cartItems.push(Object.assign({ qty: 1 }, item))
   } else {
-    _increaseItem(item)
+    _increaseItem(cartItem)
   }
 }
 
-const _cartTotals = () => {
+const _cartTotals = ( qty = 0, total = 0 ) => {
   _cartItems.forEach(cartItem => {
     qty += cartItem.qty
     total += cartItem.qty * cartItem.cost
