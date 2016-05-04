@@ -1,14 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router'
-import { LinkContainer } from 'react-router-bootstrap'
-import { Nav, Navbar, NavItem } from 'react-bootstrap'
+import {Link} from 'react-router'
+import {LinkContainer} from 'react-router-bootstrap'
+import {Nav, Navbar, NavItem} from 'react-bootstrap'
 
 const AppNav = () => (
-  <Navbar inverse className="container">
+  <Navbar className="container"
+          inverse>
     <Navbar.Header>
       <Navbar.Brand>
         <Link to="/">
-          <i className="fa fa-fw fa-play"></i>
+          <i className="fa fa-fw fa-play"/>
           React Playground
         </Link>
       </Navbar.Brand>

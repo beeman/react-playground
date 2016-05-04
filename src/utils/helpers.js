@@ -9,10 +9,7 @@ function getUserInfo (username) {
 }
 
 export default function getGithubInfo (username) {
-  return axios.all([
-      getRepos(username),
-      getUserInfo(username),
-    ])
+  return axios.all([ getRepos(username), getUserInfo(username) ])
     .then((arr) => ({ repos: arr[ 0 ].data, bio: arr[ 1 ].data }))
     .catch(err => {
       console.error(err)

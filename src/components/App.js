@@ -2,7 +2,7 @@ import React from 'react'
 import AppNav from './AppNav'
 
 const App = ({ children }) => (
-  <div className='container'>
+  <div className="container">
     <AppNav />
     <div className="container">
       {children}

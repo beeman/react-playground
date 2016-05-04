@@ -14,19 +14,29 @@ import Contact from '../components/Pages/Contact'
 import Profile from '../components/Github/Profile'
 
 export default (
-  <Route path="/" component={App}>
+  <Route component={App}
+         path="/">
     <IndexRedirect to="/home"/>
-    <Route path="/home" component={Home}/>
-    <Route path="/github" component={Github}>
-      <Route path="profile/:username" component={Profile}/>
+    <Route component={Home}
+           path="/home"/>
+    <Route component={Github}
+           path="/github">
+      <Route component={Profile}
+             path="profile/:username"/>
     </Route>
-    <Route path="/count" component={Count}/>
-    <Route path="/store" component={Store}>
-      <IndexRoute component={Catalog} />
-      <Route path="cart" component={Cart}/>
-      <Route path="item/:item" component={CatalogDetail}/>
+    <Route component={Count}
+           path="/count"/>
+    <Route component={Store}
+           path="/store">
+      <IndexRoute component={Catalog}/>
+      <Route component={Cart}
+             path="cart"/>
+      <Route component={CatalogDetail}
+             path="item/:item"/>
     </Route>
-    <Route path="/about" component={About}/>
-    <Route path="/contact" component={Contact}/>
+    <Route component={About}
+           path="/about"/>
+    <Route component={Contact}
+           path="/contact"/>
   </Route>
 )

@@ -21,7 +21,10 @@ export default (InnerComponent, stateCallback) => class extends React.Component 
   }
 
   render () {
-    return <InnerComponent {...this.state} {...this.props} />
+    return (
+      <InnerComponent
+        {...this.state}
+        {...this.props} />
+    )
   }
-
 }

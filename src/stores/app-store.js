@@ -1,4 +1,4 @@
-import {dispatch, register} from '../dispatchers/app-dispatcher'
+import {register} from '../dispatchers/app-dispatcher'
 import AppConstants from '../constants/app-constants'
 import {EventEmitter} from 'events'
 import CartAPI from '../api/CartAPI'
@@ -6,7 +6,7 @@ import CartAPI from '../api/CartAPI'
 const CHANGE_EVENT = 'change'
 
 const AppStore = Object.assign(EventEmitter.prototype, {
-  emitChange() {
+  emitChange () {
     this.emit(CHANGE_EVENT)
   },
 
@@ -18,32 +18,32 @@ const AppStore = Object.assign(EventEmitter.prototype, {
     this.removeListener(CHANGE_EVENT, callback)
   },
 
-  getCart() {
+  getCart () {
     return CartAPI.cartItems
   },
 
-  getCatalog() {
+  getCatalog () {
     return CartAPI.getCatalog()
   },
 
-  getCartTotals() {
+  getCartTotals () {
     return CartAPI.cartTotals()
   },
 
-  dispatcherIndex: register(function(action) {
+  dispatcherIndex: register((action) => {
     switch (action.actionType) {
-      case AppConstants.ADD_ITEM:
-        CartAPI.addItem(action.item)
-        break
-      case AppConstants.REMOVE_ITEM:
-        CartAPI.remoteItem(action.item)
-        break
-      case AppConstants.INCREASE_ITEM:
-        CartAPI.increaseItem(action.item)
-        break
-      case AppConstants.DECREASE_ITEM:
-        CartAPI.decreaseItem(action.item)
-        break
+    case AppConstants.ADD_ITEM:
+      CartAPI.addItem(action.item)
+      break
+    case AppConstants.REMOVE_ITEM:
+      CartAPI.remoteItem(action.item)
+      break
+    case AppConstants.INCREASE_ITEM:
+      CartAPI.increaseItem(action.item)
+      break
+    case AppConstants.DECREASE_ITEM:
+      CartAPI.decreaseItem(action.item)
+      break
     }
 
     AppStore.emitChange()
